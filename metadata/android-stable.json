@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "platform": "android",
+  "channel": "stable",
+  "enabled": true,
+  "latest_version": "1.0.1",
+  "latest_build": 150,
+  "minimum_supported_build": 148,
+  "update_level": "normal",
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B150/MIAO_POS_1.0.1%2B150.apk",
+  "sha256": "99535601b1f7094fdff5f8ea5a5e87575689ac9716e4256e170b9020dc29154e",
+  "file_size": 33296630,
+  "release_notes": [
+    "当前库存仅显示有效商品",
+    "库存同步不再处理已停用或已永久删除的商品",
+    "避免旧库存数据影响重新导入的新商品"
+  ],
+  "published_at": "2026-09-05T09:03:00Z"
+}
