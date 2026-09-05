@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "platform": "windows",
+  "channel": "stable",
+  "enabled": true,
+  "latest_version": "1.0.1",
+  "latest_build": 149,
+  "minimum_supported_build": 148,
+  "update_level": "normal",
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B149/MIAO_POS_Windows_1.0.1+149_Setup.exe",
+  "sha256": "1bb8539a4cd7d93ed062e391a76bb60ab35467d7662ec4d2f39bef93cd055329",
+  "file_size": 13291776,
+  "release_notes": [
+    "修复其他设备修改折扣后，Windows EXE 可能延迟显示的问题",
+    "修复 Windows 版本号重复显示为 +149+149 的问题",
+    "完善 Windows 半自动更新地址"
+  ],
+  "published_at": "2026-09-05T07:00:00Z"
+}
