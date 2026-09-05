@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 150,
+  "latest_build": 151,
   "minimum_supported_build": 149,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B150/MIAO_POS_Windows_1.0.1%2B150_Setup.exe",
-  "sha256": "ed337f20e40716cc5a26f121c98313ba296f1e51f27aa9888528ae7827977c37",
-  "file_size": 13292301,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B151/MIAO_POS_Windows_1.0.1%2B151_Setup.exe",
+  "sha256": "e181c9d727e4336aadc136b08c3291a9d2c1f7379fd41c44978e70b908ac814b",
+  "file_size": 13289957,
   "release_notes": [
-    "当前库存仅显示有效商品",
-    "库存同步不再处理已停用或已永久删除的商品",
-    "避免旧库存数据影响重新导入的新商品"
+    "API 域名切换至 https://api.miaopos.net",
+    "保持现有 Windows 功能及自动更新机制",
+    "版本更新至 1.0.1+151"
   ],
-  "published_at": "2026-09-05T09:12:39Z"
+  "published_at": "2026-09-05T17:29:13Z"
 }
