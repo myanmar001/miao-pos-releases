@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 150,
+  "latest_build": 151,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B150/MIAO_POS_1.0.1%2B150.apk",
-  "sha256": "99535601b1f7094fdff5f8ea5a5e87575689ac9716e4256e170b9020dc29154e",
-  "file_size": 33296630,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B151/MIAO_POS_1.0.1%2B151.apk",
+  "sha256": "5683c7b936059b40c2941c08494186d4c4c2421890d1e0b37f08887262c00046",
+  "file_size": 33296448,
   "release_notes": [
-    "当前库存仅显示有效商品",
-    "库存同步不再处理已停用或已永久删除的商品",
-    "避免旧库存数据影响重新导入的新商品"
+    "API 域名切换至 https://api.miaopos.net",
+    "保持现有销售、库存、订单、打印及同步功能",
+    "版本更新至 1.0.1+151"
   ],
-  "published_at": "2026-09-05T09:03:00Z"
+  "published_at": "2026-09-05T17:29:13Z"
 }
