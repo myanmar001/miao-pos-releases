@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 149,
-  "minimum_supported_build": 148,
+  "latest_build": 150,
+  "minimum_supported_build": 149,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B149/MIAO_POS_Windows_1.0.1+149_Setup.exe",
-  "sha256": "1bb8539a4cd7d93ed062e391a76bb60ab35467d7662ec4d2f39bef93cd055329",
-  "file_size": 13291776,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B150/MIAO_POS_Windows_1.0.1%2B150_Setup.exe",
+  "sha256": "ed337f20e40716cc5a26f121c98313ba296f1e51f27aa9888528ae7827977c37",
+  "file_size": 13292301,
   "release_notes": [
-    "修复其他设备修改折扣后，Windows EXE 可能延迟显示的问题",
-    "修复 Windows 版本号重复显示为 +149+149 的问题",
-    "完善 Windows 半自动更新地址"
+    "当前库存仅显示有效商品",
+    "库存同步不再处理已停用或已永久删除的商品",
+    "避免旧库存数据影响重新导入的新商品"
   ],
-  "published_at": "2026-09-05T07:00:00Z"
+  "published_at": "2026-09-05T09:12:39Z"
 }
