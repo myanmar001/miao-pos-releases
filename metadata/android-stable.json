@@ -1,19 +1,19 @@
 {
-    "schema_version":  1,
-    "platform":  "android",
-    "channel":  "stable",
-    "enabled":  true,
-    "latest_version":  "1.0.1",
-    "latest_build":  155,
-    "minimum_supported_build":  148,
-    "update_level":  "normal",
-    "download_url":  "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B155/MIAO_POS_1.0.1%2B155.apk",
-    "sha256":  "3477102f2fa5b09c2d1e3b1c7f9fa7452ce26d717c59d4c9dd444cd0f7d3f613",
-    "file_size":  33306797,
-    "release_notes":  [
-                          "修复不同语言设备的默认分类反复同步",
-                          "修复信用卡默认名称未修改保存时被翻译覆盖",
-                          "保留云端登录迁移和门店商品范围修复"
-                      ],
-    "published_at":  "2026-09-06T09:38:48Z"
+  "schema_version": 1,
+  "platform": "android",
+  "channel": "stable",
+  "enabled": true,
+  "latest_version": "1.0.1",
+  "latest_build": 156,
+  "minimum_supported_build": 148,
+  "update_level": "normal",
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B156/MIAO_POS_1.0.1%2B156.apk",
+  "sha256": "a47793a2a909a140f36faf1eabeedfcd79d08266b19530a73dcf1f13ae0cb07d",
+  "file_size": 33333188,
+  "release_notes": [
+    "修复局域网网关选举：每3秒检查，连续12秒无有效响应后重新选举",
+    "后来恢复上线的设备跟随当前网关",
+    "升级请覆盖安装，不卸载、不清数据"
+  ],
+  "published_at": "2026-09-06T17:17:48Z"
 }
