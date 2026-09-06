@@ -1,19 +1,19 @@
 {
-  "schema_version": 1,
-  "platform": "android",
-  "channel": "stable",
-  "enabled": true,
-  "latest_version": "1.0.1",
-  "latest_build": 153,
-  "minimum_supported_build": 148,
-  "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B153/MIAO_POS_1.0.1%2B153.apk",
-  "sha256": "47cf18f150ef455b98e2b9c69f8ef205972218da8687346dfa1afecaf08067ff",
-  "file_size": 33307283,
-  "release_notes": [
-    "修复商品按门店销售范围管理",
-    "支持本店下架、本店删除及后台恢复",
-    "版本更新至 1.0.1+153"
-  ],
-  "published_at": "2026-09-06T07:06:32Z"
+    "schema_version":  1,
+    "platform":  "android",
+    "channel":  "stable",
+    "enabled":  true,
+    "latest_version":  "1.0.1",
+    "latest_build":  155,
+    "minimum_supported_build":  148,
+    "update_level":  "normal",
+    "download_url":  "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B155/MIAO_POS_1.0.1%2B155.apk",
+    "sha256":  "3477102f2fa5b09c2d1e3b1c7f9fa7452ce26d717c59d4c9dd444cd0f7d3f613",
+    "file_size":  33306797,
+    "release_notes":  [
+                          "修复不同语言设备的默认分类反复同步",
+                          "修复信用卡默认名称未修改保存时被翻译覆盖",
+                          "保留云端登录迁移和门店商品范围修复"
+                      ],
+    "published_at":  "2026-09-06T09:38:48Z"
 }
