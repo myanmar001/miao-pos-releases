@@ -1,19 +1,19 @@
 {
-    "schema_version":  1,
-    "platform":  "windows",
-    "channel":  "stable",
-    "enabled":  true,
-    "latest_version":  "1.0.1",
-    "latest_build":  155,
-    "minimum_supported_build":  149,
-    "update_level":  "normal",
-    "download_url":  "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B155/MIAO_POS_Windows_1.0.1%2B155_Setup.exe",
-    "sha256":  "7604d2dc209715fc2d05a9e8c4b490302bc9a2a196f2a77b9069697dd885b41b",
-    "file_size":  13296495,
-    "release_notes":  [
-                          "修复不同语言设备的默认分类反复同步",
-                          "修复信用卡默认名称未修改保存时被翻译覆盖",
-                          "保留云端登录迁移和门店商品范围修复"
-                      ],
-    "published_at":  "2026-09-06T09:39:42Z"
+  "schema_version": 1,
+  "platform": "windows",
+  "channel": "stable",
+  "enabled": true,
+  "latest_version": "1.0.1",
+  "latest_build": 156,
+  "minimum_supported_build": 149,
+  "update_level": "normal",
+  "download_url": "https://github.com/myanmar001/windows-/releases/download/windows-v1.0.1%2B156/MIAO_POS_Windows_1.0.1%2B156_Setup.exe",
+  "sha256": "88c4112b3af4e91571d7a33abd5a3f0f3a6000b742749901bc261fe195f6d8f8",
+  "file_size": 13301324,
+  "release_notes": [
+    "局域网每3秒检查网关状态",
+    "连续12秒无有效响应后重新选举",
+    "后来恢复上线的设备跟随当前网关"
+  ],
+  "published_at": "2026-09-06T17:20:00Z"
 }
