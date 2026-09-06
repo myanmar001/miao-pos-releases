@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 151,
+  "latest_build": 153,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B151/MIAO_POS_1.0.1%2B151.apk",
-  "sha256": "5683c7b936059b40c2941c08494186d4c4c2421890d1e0b37f08887262c00046",
-  "file_size": 33296448,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B153/MIAO_POS_1.0.1%2B153.apk",
+  "sha256": "47cf18f150ef455b98e2b9c69f8ef205972218da8687346dfa1afecaf08067ff",
+  "file_size": 33307283,
   "release_notes": [
-    "API 域名切换至 https://api.miaopos.net",
-    "保持现有销售、库存、订单、打印及同步功能",
-    "版本更新至 1.0.1+151"
+    "修复商品按门店销售范围管理",
+    "支持本店下架、本店删除及后台恢复",
+    "版本更新至 1.0.1+153"
   ],
-  "published_at": "2026-09-05T17:29:13Z"
+  "published_at": "2026-09-06T07:06:32Z"
 }
