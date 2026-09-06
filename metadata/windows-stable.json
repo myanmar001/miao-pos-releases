@@ -1,19 +1,19 @@
 {
-  "schema_version": 1,
-  "platform": "windows",
-  "channel": "stable",
-  "enabled": true,
-  "latest_version": "1.0.1",
-  "latest_build": 153,
-  "minimum_supported_build": 149,
-  "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B153/MIAO_POS_Windows_1.0.1%2B153_Setup.exe",
-  "sha256": "18b3966fff2ddc7d806123c75c4f017bd71ce9e440d6cb98d4f29d9c7368fcb9",
-  "file_size": 13295826,
-  "release_notes": [
-    "修复商品按门店销售范围管理",
-    "支持本店下架、本店删除及后台恢复",
-    "版本更新至 1.0.1+153"
-  ],
-  "published_at": "2026-09-06T07:06:32Z"
+    "schema_version":  1,
+    "platform":  "windows",
+    "channel":  "stable",
+    "enabled":  true,
+    "latest_version":  "1.0.1",
+    "latest_build":  155,
+    "minimum_supported_build":  149,
+    "update_level":  "normal",
+    "download_url":  "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B155/MIAO_POS_Windows_1.0.1%2B155_Setup.exe",
+    "sha256":  "7604d2dc209715fc2d05a9e8c4b490302bc9a2a196f2a77b9069697dd885b41b",
+    "file_size":  13296495,
+    "release_notes":  [
+                          "修复不同语言设备的默认分类反复同步",
+                          "修复信用卡默认名称未修改保存时被翻译覆盖",
+                          "保留云端登录迁移和门店商品范围修复"
+                      ],
+    "published_at":  "2026-09-06T09:39:42Z"
 }
