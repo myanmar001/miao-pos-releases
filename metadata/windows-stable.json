@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 151,
+  "latest_build": 153,
   "minimum_supported_build": 149,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B151/MIAO_POS_Windows_1.0.1%2B151_Setup.exe",
-  "sha256": "e181c9d727e4336aadc136b08c3291a9d2c1f7379fd41c44978e70b908ac814b",
-  "file_size": 13289957,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B153/MIAO_POS_Windows_1.0.1%2B153_Setup.exe",
+  "sha256": "18b3966fff2ddc7d806123c75c4f017bd71ce9e440d6cb98d4f29d9c7368fcb9",
+  "file_size": 13295826,
   "release_notes": [
-    "API 域名切换至 https://api.miaopos.net",
-    "保持现有 Windows 功能及自动更新机制",
-    "版本更新至 1.0.1+151"
+    "修复商品按门店销售范围管理",
+    "支持本店下架、本店删除及后台恢复",
+    "版本更新至 1.0.1+153"
   ],
-  "published_at": "2026-09-05T17:29:13Z"
+  "published_at": "2026-09-06T07:06:32Z"
 }
