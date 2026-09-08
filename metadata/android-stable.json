@@ -4,16 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 156,
+  "latest_build": 158,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B156/MIAO_POS_1.0.1%2B156.apk",
-  "sha256": "a47793a2a909a140f36faf1eabeedfcd79d08266b19530a73dcf1f13ae0cb07d",
-  "file_size": 33333188,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B158/MIAO_POS_1.0.1%2B158.apk",
+  "sha256": "b64d64ff112a6d753221ceabae0844131baa5f474a27e905498caf30a8cb7ab7",
+  "file_size": 33414965,
   "release_notes": [
-    "修复局域网网关选举：每3秒检查，连续12秒无有效响应后重新选举",
-    "后来恢复上线的设备跟随当前网关",
+    "新增未付订单并桌、按商品与数量拆单及转桌",
+    "修复窄屏未付订单标题和底部操作按钮布局",
+    "企业级 SKU 由服务器统一分配，门店删除商品不释放已有 SKU",
     "升级请覆盖安装，不卸载、不清数据"
   ],
-  "published_at": "2026-09-06T17:17:48Z"
+  "published_at": "2026-09-08T13:01:54Z"
 }
