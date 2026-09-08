@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 158,
+  "latest_build": 159,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B158/MIAO_POS_1.0.1%2B158.apk",
-  "sha256": "b64d64ff112a6d753221ceabae0844131baa5f474a27e905498caf30a8cb7ab7",
-  "file_size": 33414965,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B159/MIAO_POS_1.0.1%2B159.apk",
+  "sha256": "96980c7b1b70676ecef95a6c19073416717db203e70fec7b66067f8ce7921361",
+  "file_size": 33433245,
   "release_notes": [
-    "新增未付订单并桌、按商品与数量拆单及转桌",
-    "修复窄屏未付订单标题和底部操作按钮布局",
-    "企业级 SKU 由服务器统一分配，门店删除商品不释放已有 SKU",
+    "提升局域网 Gateway 选举与断线接管稳定性",
+    "断网设备不再周期性重建网络和 HTTP 端口",
+    "网络恢复设备自动跟随当前 Gateway",
     "升级请覆盖安装，不卸载、不清数据"
   ],
-  "published_at": "2026-09-08T13:01:54Z"
+  "published_at": "2026-09-08T16:51:00Z"
 }
