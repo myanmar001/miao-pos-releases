@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 156,
+  "latest_build": 158,
   "minimum_supported_build": 149,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B156/MIAO_POS_Windows_1.0.1%2B156_Setup.exe",
-  "sha256": "88c4112b3af4e91571d7a33abd5a3f0f3a6000b742749901bc261fe195f6d8f8",
-  "file_size": 13301324,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B158/MIAO_POS_Windows_1.0.1%2B158_Setup.exe",
+  "sha256": "5dc772b9c61ebbd93db5ed706cfad485eaa6270121670ce4a4d88f99677a399b",
+  "file_size": 13324866,
   "release_notes": [
-    "局域网每3秒检查网关状态",
-    "连续12秒无有效响应后重新选举",
-    "后来恢复上线的设备跟随当前网关"
+    "新增未付订单并桌、按商品与数量拆单及转桌",
+    "修复窄屏未付订单标题和底部操作按钮布局",
+    "企业级 SKU 由服务器统一分配，门店删除商品不释放已有 SKU"
   ],
-  "published_at": "2026-09-06T17:20:00Z"
+  "published_at": "2026-09-08T13:01:54Z"
 }
