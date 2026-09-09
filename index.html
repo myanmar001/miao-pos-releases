@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1220">
+  <title>MIAO POS - Download</title>
+  <meta name="description" content="MIAO POS official download page. Android APK and Windows installer.">
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Noto Sans Myanmar",sans-serif;background:#0b1220;color:#eef3ff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.wrap{width:min(760px,100%)}.card{background:#131d31;border:1px solid #25324b;border-radius:22px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.28)}h1{margin:0 0 8px;font-size:34px;letter-spacing:.5px}.sub{margin:0 0 24px;color:#aebbd3;line-height:1.7}.status{display:inline-flex;align-items:center;gap:8px;background:#0f2a21;border:1px solid #1e6049;color:#9df0c7;padding:8px 12px;border-radius:999px;font-size:14px;margin-bottom:22px}.dot{width:8px;height:8px;border-radius:50%;background:#50d890}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.btn{display:block;text-decoration:none;padding:18px;border-radius:16px;border:1px solid #33425f;background:#18243a;color:#fff}.btn:hover{background:#1d2c47}.btn strong{display:block;font-size:19px;margin-bottom:6px}.btn span{display:block;color:#aebbd3;font-size:14px;line-height:1.45}.primary{background:#1b4f91;border-color:#3477c7}.primary:hover{background:#215ca5}.meta{margin-top:18px;padding-top:18px;border-top:1px solid #26334b;color:#8fa0bd;font-size:13px;line-height:1.7}.lang{margin-top:20px;color:#c8d2e5;font-size:14px;line-height:1.8}.error{color:#ffcc8a}@media(max-width:620px){.grid{grid-template-columns:1fr}.card{padding:22px}h1{font-size:30px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="status"><span class="dot"></span><span>Official download / 官方下载 / တရားဝင် ဒေါင်းလုဒ်</span></div>
+      <h1>MIAO POS</h1>
+      <p class="sub">Android 与 Windows 官方安装包。下载文件由 MIAO POS 官方 GitHub Releases 提供。</p>
+      <div class="grid">
+        <a id="apk" class="btn primary" href="https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B159/MIAO_POS_1.0.1%2B159.apk">
+          <strong>Android APK</strong>
+          <span id="apkText">下载最新版 Android 安装包</span>
+        </a>
+        <a id="win" class="btn" href="https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B159/MIAO_POS_Windows_1.0.1%2B159_Setup.exe">
+          <strong>Windows</strong>
+          <span id="winText">下载最新版 Windows 安装程序</span>
+        </a>
+      </div>
+      <div id="meta" class="meta">正在读取最新版本…</div>
+      <div class="lang">中文：点击对应按钮直接下载。<br>English: Tap the appropriate button to download the latest installer.<br>မြန်မာ: နောက်ဆုံးဗားရှင်းကို ဒေါင်းလုဒ်လုပ်ရန် သက်ဆိုင်ရာခလုတ်ကို နှိပ်ပါ။</div>
+    </section>
+  </main>
+  <script>
+    (async()=>{
+      const meta=document.getElementById('meta');
+      try{
+        const r=await fetch('https://api.github.com/repos/myanmar001/miao-pos-releases/releases/latest',{headers:{'Accept':'application/vnd.github+json'}});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const rel=await r.json();
+        const apk=(rel.assets||[]).find(a=>/\.apk$/i.test(a.name));
+        const win=(rel.assets||[]).find(a=>/\.exe$/i.test(a.name));
+        if(apk){document.getElementById('apk').href=apk.browser_download_url;document.getElementById('apkText').textContent=apk.name;}
+        if(win){document.getElementById('win').href=win.browser_download_url;document.getElementById('winText').textContent=win.name;}
+        meta.textContent='Latest / 最新版本：'+(rel.name||rel.tag_name||'')+' · GitHub Releases';
+      }catch(e){
+        meta.innerHTML='<span class="error">无法读取版本信息时，按钮仍会下载已配置的稳定版本 +159。</span>';
+      }
+    })();
+  </script>
+</body>
+</html>
