@@ -1,5 +1,7 @@
 name: Publish accepted original Android 170 to stable
 on:
+  push:
+    branches: ['release/android170-original-20260914']
   workflow_dispatch:
 permissions:
   contents: write
