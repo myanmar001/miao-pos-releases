@@ -5,7 +5,6 @@ import os
 import pathlib
 import time
 import urllib.error
-import urllib.parse
 import urllib.request
 
 REPO = 'myanmar001/miao-pos-releases'
@@ -29,7 +28,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 def api(path, method='GET', data=None):
     request = urllib.request.Request(API + path, method=method, headers=HEADERS,
         data=None if data is None else json.dumps(data).encode())
-    # Non-idempotent creation/upload is retried only after resolving its result.
+    # Non-idempotent creation is retried only after resolving its result.
     for attempt in range(3):
         try:
             with urllib.request.build_opener(NoRedirect).open(request, timeout=40) as response:
@@ -76,20 +75,6 @@ def find_asset(release):
 
 notes = pathlib.Path('ci/android170/RELEASE_NOTES.md').read_text()
 release = find_release()
-asset = find_asset(release) if release else None
-if asset:
-    raw = download_asset(asset)
-else:
-    transfer = os.environ.get('SOURCE_APK_URL', '')
-    parts = urllib.parse.urlsplit(transfer)
-    assert parts.scheme == 'https' and parts.hostname == 'release-assets.githubusercontent.com'
-    assert not parts.username and not parts.password
-    # Scoped immutable object: only the APK the user authorized for publication.
-    # This URL has no repository access and no auth header is sent to it.
-    print('::add-mask::' + transfer)
-    with urllib.request.urlopen(transfer, timeout=90) as response:
-        raw = verify(response.read(SIZE + 1))
-
 for attempt in range(3):
     if release:
         break
@@ -104,26 +89,18 @@ for attempt in range(3):
         time.sleep(2 * (attempt + 1))
 assert release and release['tag_name'] == TAG
 
-for attempt in range(3):
-    asset = find_asset(release)
-    if asset:
-        download_asset(asset)
-        break
-    assert release['draft'], 'Will not attach to a published release'
-    url = 'https://uploads.github.com/repos/' + REPO + '/releases/' + str(release['id'])
-    url += '/assets?' + urllib.parse.urlencode({'name': NAME})
-    request = urllib.request.Request(url, method='POST', data=raw,
-        headers=dict(HEADERS, **{'Content-Type': 'application/vnd.android.package-archive'}))
-    try:
-        with urllib.request.build_opener(NoRedirect).open(request, timeout=120) as response:
-            asset = json.load(response)
-        download_asset(asset)
-        break
-    except urllib.error.HTTPError as error:
-        if error.code not in (429, 500, 502, 503, 504) or attempt == 2:
-            raise
-        time.sleep(2 * (attempt + 1))
-assert asset, 'Verified original APK upload missing'
+asset = find_asset(release)
+if not asset:
+    assert release['draft'], 'Published release has no original APK'
+    result = {'status': 'awaiting_original_apk_attachment',
+        'release_id': release['id'], 'release_url': release['html_url'],
+        'expected_filename': NAME, 'sha256': SHA, 'size_bytes': SIZE,
+        'apk_rebuilt': False, 'stable_metadata_changed': False}
+    print('ANDROID_170_PUBLIC_RELEASE=' + json.dumps(result))
+    raise SystemExit(0)
+
+# Attachment must be byte-identical to the accepted private original.
+download_asset(asset)
 release = api('/releases/' + str(release['id']), 'PATCH',
     {'draft': False, 'prerelease': False, 'make_latest': 'true', 'body': notes})
 assert not release['draft'] and not release['prerelease']
