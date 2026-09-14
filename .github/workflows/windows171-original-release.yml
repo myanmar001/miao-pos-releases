@@ -1,0 +1,23 @@
+name: Publish original Windows171 and stable download metadata
+on:
+  push:
+    branches: ['release/windows171-original-20260914']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-original-windows171
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ci/windows171-publication
+          sparse-checkout-cone-mode: true
+      - name: Verify anonymous original downloads and promote Windows171
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/windows171-publication/publish_windows171.py
