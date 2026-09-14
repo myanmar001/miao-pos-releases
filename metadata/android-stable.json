@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 159,
+  "latest_build": 167,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B159/MIAO_POS_1.0.1%2B159.apk",
-  "sha256": "96980c7b1b70676ecef95a6c19073416717db203e70fec7b66067f8ce7921361",
-  "file_size": 33433245,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B167/MIAO_POS_1.0.1%2B167_CLOUD_PROFILE_RECOVERY_R1.apk",
+  "sha256": "ef13e0b5e82449b951ff5f04aa26386e9392f40662d52045d93894944af6e533",
+  "file_size": 33537414,
   "release_notes": [
-    "提升局域网 Gateway 选举与断线接管稳定性",
-    "断网设备不再周期性重建网络和 HTTP 端口",
-    "网络恢复设备自动跟随当前 Gateway",
+    "修复企业资料和员工权限刷新时的登录恢复",
+    "修复同步提前超时与 Realtime 连接地址校验",
+    "完善 Cloudflare 主线路与 Vercel 备用线路的故障切换和恢复",
     "升级请覆盖安装，不卸载、不清数据"
   ],
-  "published_at": "2026-09-08T16:51:00Z"
+  "published_at": "2026-09-14T07:26:01Z"
 }
