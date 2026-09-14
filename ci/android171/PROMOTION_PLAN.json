@@ -1,0 +1,23 @@
+{
+  "authorization": "已打印，可以了，发布吧",
+  "print_acceptance": "user_reported_pass",
+  "publish_only_original_apk": true,
+  "original_private_release": 388526977,
+  "original_apk_asset": 563719314,
+  "original_build": 34864228462,
+  "original_build_commit": "54dfb74632578fc55d90fb8ac8be5f0886d04e5a",
+  "filename": "MIAO_POS_1.0.1+171_KITCHEN_TICKET_R1.apk",
+  "size_bytes": 33578181,
+  "sha256": "3cb08e804aaaf11a141984ce3f14d46a6110263d69e84053003681d9ac1c717c",
+  "public_repo": "myanmar001/miao-pos-releases",
+  "public_tag": "v1.0.1+171",
+  "public_release_must_be_verified_before_metadata": true,
+  "metadata_expected_before_blob": "5a152cd77e446cd18c038b84326f5ff128faf8e2",
+  "metadata_target_build": 171,
+  "metadata_minimum_supported_build": 148,
+  "metadata_update_level": "normal",
+  "metadata_published_at_source": "Actual GitHub published release timestamp",
+  "index_expected_before_blob": "338cdc6a72e4922382218057f6cf2dbeac9226b0",
+  "windows_metadata_preserve_blob": "6f200293e456cd3189f539e2cef14846129bd8cc",
+  "stable_promotion_completed": false
+}

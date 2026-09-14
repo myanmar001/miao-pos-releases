@@ -1,0 +1,24 @@
+name: Publish accepted original Android 171 to stable
+on:
+  push:
+    branches: ['release/android171-original-20260914']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-original-android171
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ci/android171
+          sparse-checkout-cone-mode: true
+      - name: Verify attached original APK and publish stable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/android171/publish_original171.py
+
