@@ -1,4 +1,4 @@
-name: Prepare or verify original Android 167 release
+name: Promote verified original Android 167 to stable
 on:
   push:
     branches: ['release/android167-original-20260914']
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Prepare release; verify original APK if attached
+      - name: Verify original APK and publish stable release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -38,7 +38,7 @@ jobs:
           releases=call('/releases?per_page=100')
           matches=[r for r in releases if r['tag_name']==tag]
           assert len(matches)<=1,'Duplicate target releases'
-          body='旧 Android com.yuepos.app +167，沿用原签名。\n\n原构建已完成；本流程只验证并发布同一个 APK，不执行构建。\nA 已确认苹果热点下 16 项刷新成功；B 验收尚未确认。当前仍作为测试版本，稳定自动升级配置和 Windows 不变。\n\n原 APK 文件名：'+name+'\n文件大小：'+str(size)+' bytes\nSHA256：'+expected+'\n\n原成功构建：34752066230；源提交：3330340c33f57928fe6e2dfa9fed0e410285f14c。\n'
+          body='旧 MIAO POS Android 1.0.1+167 正式版（com.yuepos.app）。\n\n修复企业资料和员工权限刷新时的登录恢复、同步提前超时及 Realtime 地址校验，保留 Cloudflare 主线路与 Vercel 备用线路自动切换。\n\n沿用原签名，覆盖安装保留本地数据；请勿卸载或清除数据。\n\nAPK：'+name+'\n文件大小：'+str(size)+' bytes\nSHA256：'+expected+'\n\n复用原成功构建 34752066230；源提交：3330340c33f57928fe6e2dfa9fed0e410285f14c。\n'
           if matches:
               release=matches[0]
           else:
@@ -62,7 +62,7 @@ jobs:
                   # Do not forward the repository credential to the asset host.
                   with urllib.request.urlopen(error.headers['Location'],timeout=60) as response:raw=response.read(size+1)
               assert len(raw)==size and hashlib.sha256(raw).hexdigest()==expected,'Original APK byte verification failed'
-              if release['draft']:
-                  release=call('/releases/'+str(release['id']),'PATCH',{'draft':False,'prerelease':True,'make_latest':'false','body':body})
-              print(json.dumps({'status':'published_original_apk_verified','release_id':release['id'],'release_url':release['html_url'],'asset_id':asset['id'],'download_url':asset['browser_download_url'],'sha256':expected,'stable_metadata_changed':False}))
+              if release['draft'] or release['prerelease']:
+                  release=call('/releases/'+str(release['id']),'PATCH',{'draft':False,'prerelease':False,'make_latest':'true','body':body})
+              print(json.dumps({'status':'stable_original_apk_verified','release_id':release['id'],'release_url':release['html_url'],'asset_id':asset['id'],'download_url':asset['browser_download_url'],'sha256':expected,'stable_metadata_changed':False}))
           PY
