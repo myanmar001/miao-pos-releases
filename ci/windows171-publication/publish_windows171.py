@@ -65,6 +65,37 @@ def verify_public(asset, expected):
             time.sleep(3 * (attempt + 1))
 
 
+def ensure_website_portable_alias(original):
+    # The existing live website builds this stable filename from the version.
+    name = 'MIAO_POS_Windows_1.0.1+171_Portable.zip'
+    expected = dict(original, name=name)
+    def find():
+        matches = [a for a in api('/releases/' + str(RELEASE) + '/assets?per_page=100') if a['name'] == name]
+        assert len(matches) <= 1
+        return matches[0] if matches else None
+    alias = find()
+    if alias is None:
+        with urllib.request.urlopen(original['download_url'], timeout=90) as response:
+            raw = response.read(original['size'] + 1)
+        assert len(raw) == original['size'] and hashlib.sha256(raw).hexdigest() == original['sha256']
+        url = 'https://uploads.github.com/repos/' + REPO + '/releases/' + str(RELEASE) + '/assets?name=' + urllib.parse.quote(name, safe='')
+        request = urllib.request.Request(url, method='POST', data=raw,
+            headers=dict(HEADERS, **{'Content-Type': 'application/zip'}))
+        for attempt in range(3):
+            try:
+                with urllib.request.build_opener(NoRedirect).open(request, timeout=120) as response:
+                    alias = json.load(response)
+                break
+            except urllib.error.HTTPError as error:
+                # Resolve a possibly completed upload before any retry.
+                alias = find()
+                if alias is not None: break
+                if error.code not in (429, 500, 502, 503, 504) or attempt == 2: raise
+                time.sleep(3 * (attempt + 1))
+    url = verify_public(alias, expected)
+    return dict(expected, asset_id=alias['id'], download_url=url)
+
+
 def main():
     release = api('/releases/' + str(RELEASE))
     assert release['tag_name'] == TAG and not release['draft'] and not release['prerelease']
@@ -86,6 +117,8 @@ def main():
         asset = by_name[expected['name']]
         url = verify_public(asset, expected)
         verified.append(dict(expected, asset_id=asset['id'], download_url=url))
+    portable = next(a for a in verified if a['name'].endswith('_Portable.zip'))
+    website_portable = ensure_website_portable_alias(portable)
 
     head = api('/git/ref/heads/main')['object']['sha']
     parent = api('/git/commits/' + head)
@@ -109,6 +142,7 @@ def main():
               'release_url': release['html_url'], 'original_build': 34869701668,
               'original_commit': '4fa54fb804da7f3f74ed4d87f05802f41980bb70',
               'rebuilt': False, 'public_download_verified': True, 'assets': verified,
+              'website_portable_alias': website_portable,
               'published_at': template['published_at'], 'workflow_run': os.environ['GITHUB_RUN_ID'],
               'stable_android_build': 171, 'stable_windows_build': 171}
     notes = (ROOT/'RELEASE_NOTES.md').read_text(encoding='utf-8')
