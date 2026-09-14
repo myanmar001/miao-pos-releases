@@ -4,17 +4,18 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 167,
+  "latest_build": 170,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B167/MIAO_POS_1.0.1%2B167_CLOUD_PROFILE_RECOVERY_R1.apk",
-  "sha256": "ef13e0b5e82449b951ff5f04aa26386e9392f40662d52045d93894944af6e533",
-  "file_size": 33537414,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B170/MIAO_POS_1.0.1%2B170_HISTORY_ORDER_RECOVERY_R1.apk",
+  "sha256": "ba35c41e2c870fd398d1ba77106ee2229d0f65550e83d5664dc9f6ba729b11c0",
+  "file_size": 33576309,
   "release_notes": [
-    "修复企业资料和员工权限刷新时的登录恢复",
-    "修复同步提前超时与 Realtime 连接地址校验",
-    "完善 Cloudflare 主线路与 Vercel 备用线路的故障切换和恢复",
-    "升级请覆盖安装，不卸载、不清数据"
+    "修复订单与退款记录增量刷新失败",
+    "修复同店资料刷新导致历史同步中断",
+    "优化商品和历史记录增量同步，减少重复下载",
+    "包含企业资料、员工权限及主备线路恢复修复",
+    "原签名覆盖升级，保留本地数据"
   ],
-  "published_at": "2026-09-14T07:26:01Z"
+  "published_at": "2026-09-14T15:06:49Z"
 }
