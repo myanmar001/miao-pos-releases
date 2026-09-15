@@ -1,0 +1,112 @@
+name: Publish original Android 172
+on:
+  push:
+    branches: ['release/android172-original-20260915']
+    paths: ['.github/workflows/android172-original-release.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-original-android172
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Copy only the authorized APK, verify signer, publish and verify anonymous download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json,os,pathlib,re,subprocess,time,urllib.request,urllib.error,urllib.parse
+          REPO='myanmar001/miao-pos-releases'
+          assert os.environ['GITHUB_REPOSITORY']==REPO
+          TAG='v1.0.1+172'
+          NAME='MIAO_POS_1.0.1+172_TAX_DISPLAY_R1.apk'
+          SIZE=33604356
+          SHA='cd6c2e481d6b5504b55a9329808ad6586300c50f1d706007d26e1175a594db92'
+          CERT='01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b'
+          API='https://api.github.com/repos/'+REPO
+          H={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'}
+          # Expiring read-only object grant for the one APK explicitly approved for public release.
+          # This grants no access to the source repository, other files, signing keys or account.
+          SOURCE='https://release-assets.githubusercontent.com/github-production-release-asset/1289863271/9b510abd-461f-4358-b6c1-cc03f03e8be4?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-15T14%3A26%3A25Z&rscd=attachment%3B+filename%3DMIAO_POS_1.0.1%2B172_TAX_DISPLAY_R1.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-15T13%3A25%3A59Z&ske=2026-09-15T14%3A26%3A25Z&sks=b&skv=2018-11-09&sig=wyYokptIIH2X9EdDv4J6PEoAoje3YTiClSyNGzuGdww%3D'
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*a,**kw):return None
+          opener=urllib.request.build_opener(NoRedirect)
+          def api(path,method='GET',data=None):
+              req=urllib.request.Request(API+path,method=method,headers=H,data=None if data is None else json.dumps(data).encode())
+              with opener.open(req,timeout=60) as r:return json.load(r)
+          def verify(raw):
+              assert len(raw)==SIZE and hashlib.sha256(raw).hexdigest()==SHA,'Not the accepted original APK'
+              return raw
+          def download(url):
+              u=urllib.parse.urlsplit(url)
+              assert u.scheme=='https' and u.hostname in ('github.com','release-assets.githubusercontent.com','objects.githubusercontent.com') and not u.username
+              with urllib.request.urlopen(url,timeout=90) as r:return verify(r.read(SIZE+1))
+          def find_release():
+              found=[r for r in api('/releases?per_page=100') if r['tag_name']==TAG]
+              assert len(found)<=1
+              return found[0] if found else None
+          def find_apk(r):
+              found=[a for a in api('/releases/'+str(r['id'])+'/assets?per_page=100') if a['name']==NAME]
+              assert len(found)<=1
+              return found[0] if found else None
+          def asset_bytes(a):
+              assert a['size']==SIZE and a['state']=='uploaded' and a['digest']=='sha256:'+SHA
+              req=urllib.request.Request(API+'/releases/assets/'+str(a['id']),headers=dict(H,Accept='application/octet-stream'))
+              try:
+                  with opener.open(req,timeout=60) as r:return verify(r.read(SIZE+1))
+              except urllib.error.HTTPError as e:
+                  if e.code not in (301,302,307,308):raise
+                  return download(e.headers['Location'])
+          stable_file=api('/contents/metadata/android-stable.json?ref=main')
+          stable=json.loads(base64.b64decode(stable_file['content']))
+          assert stable['latest_build'] in (171,172), 'Concurrent version change; do not supersede it'
+          if stable['latest_build']==172:assert stable['sha256']==SHA
+          windows_before=api('/contents/metadata/windows-stable.json?ref=main')['sha']
+          release=find_release()
+          asset=find_apk(release) if release else None
+          raw=asset_bytes(asset) if asset else download(SOURCE)
+          apk=pathlib.Path(NAME);apk.write_bytes(raw)
+          sdk=pathlib.Path(os.environ.get('ANDROID_HOME') or os.environ['ANDROID_SDK_ROOT'])
+          tools=next(p for p in sorted((sdk/'build-tools').iterdir(),reverse=True) if (p/'aapt').is_file() and (p/'apksigner').is_file())
+          badging=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(apk)],text=True)
+          m=re.search(r"package: name='([^']+)' versionCode='([^']+)' versionName='([^']+)'",badging)
+          assert m and m.groups()==('com.yuepos.app','172','1.0.1'), 'Wrong application identity'
+          signing=subprocess.check_output([str(tools/'apksigner'),'verify','--verbose','--print-certs',str(apk)],text=True)
+          certs=re.findall(r'^.*\bSigner\b.*?certificate SHA-256 digest:\s*([0-9a-fA-F]{64})\s*$',signing,re.M)
+          assert certs and {x.lower() for x in certs}=={CERT} and re.search(r'^Number of signers:\s*1\s*$',signing,re.M)
+          jar=subprocess.check_output(['keytool','-printcert','-jarfile',str(apk)],text=True)
+          jar_certs={x.replace(':','').lower() for x in re.findall(r'^\s*SHA256:\s*([0-9a-fA-F:]+)\s*$',jar,re.M)}
+          assert jar_certs=={CERT},'Independent certificate check failed'
+          notes='旧 MIAO POS 安卓 1.0.1+172\n\n税务设置在“不使用”下增加可选的价内税标识，百分比可编辑。继续使用原结账税务开关，小计及小票显示含税百分比。仅显示标识，不增加、不扣除、不拆分税额；原价外税、商品售价、折扣、服务费计算不变。\n\n与此前172候选APK逐字节相同，没有重新构建或重新签名。原包名、原签名覆盖升级，不卸载、不清数据。Windows保持171。\n\nSHA-256: '+SHA
+          if not release:
+              try:
+                  release=api('/releases','POST',{'tag_name':TAG,'target_commitish':'409b8b64453a042968a824b3d3319b2f21818765','name':'MIAO POS Android 1.0.1+172','body':notes,'draft':True,'prerelease':False,'make_latest':'false'})
+              except Exception:
+                  release=find_release()
+                  if release is None:raise
+          if not asset:
+              assert release['draft'],'Never replace published assets'
+              upload=release['upload_url'].split('{',1)[0]
+              assert urllib.parse.urlsplit(upload).hostname=='uploads.github.com'
+              req=urllib.request.Request(upload+'?name='+urllib.parse.quote(NAME,safe=''),method='POST',headers=dict(H,**{'Content-Type':'application/vnd.android.package-archive'}),data=raw)
+              try:
+                  with opener.open(req,timeout=120) as r:asset=json.load(r)
+              except Exception:
+                  asset=find_apk(release)
+                  if asset is None:raise
+          asset_bytes(asset)
+          # Feed updates are deliberately separate and occur only after anonymous binary verification.
+          release=api('/releases/'+str(release['id']),'PATCH',{'draft':False,'prerelease':False,'make_latest':'true','body':notes})
+          assert not release['draft'] and not release['prerelease']
+          assert api('/releases/latest')['id']==release['id']
+          asset=find_apk(release)
+          download(asset['browser_download_url'])
+          assert api('/contents/metadata/windows-stable.json?ref=main')['sha']==windows_before
+          assert api('/contents/metadata/android-stable.json?ref=main')['sha']==stable_file['sha']
+          print('ANDROID_172_PUBLIC_RELEASE='+json.dumps({'status':'published','release_id':release['id'],'release_url':release['html_url'],'asset_id':asset['id'],'download_url':asset['browser_download_url'],'sha256':SHA,'bytes':SIZE,'certificate_sha256':CERT,'original_apk_preserved':True,'anonymous_download_verified':True,'stable_metadata_changed':False,'windows_unchanged':True}))
+          PY
