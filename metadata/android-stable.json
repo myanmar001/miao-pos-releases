@@ -4,18 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 171,
+  "latest_build": 172,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B171/MIAO_POS_1.0.1%2B171_KITCHEN_TICKET_R1.apk",
-  "sha256": "3cb08e804aaaf11a141984ce3f14d46a6110263d69e84053003681d9ac1c717c",
-  "file_size": 33578181,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B172/MIAO_POS_1.0.1%2B172_TAX_DISPLAY_R1.apk",
+  "sha256": "cd6c2e481d6b5504b55a9329808ad6586300c50f1d706007d26e1175a594db92",
+  "file_size": 33604356,
   "release_notes": [
-    "优化厨房订单号和商品字号，保留加粗",
-    "长商品名称完整换行，续行与名称开头对齐",
-    "数量独立排列，口味显示在完整商品名称下方",
-    "包含 +170 的订单退款、企业资料、员工权限和主备线路恢复修复",
-    "原签名覆盖升级，保留本地数据"
+    "税务设置在不使用下新增可选价内税标识，百分比可编辑",
+    "沿用原结账税务开关，小计和小票显示含税百分比",
+    "仅显示标识，不加钱、不减钱、不拆税额，原价外税和其他金额计算不变",
+    "保留 +171 原有功能，原签名覆盖升级，保留本地数据"
   ],
-  "published_at": "2026-09-14T16:11:22Z"
+  "published_at": "2026-09-15T13:54:23Z"
 }
