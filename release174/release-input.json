@@ -1,0 +1,21 @@
+{
+  "build_commit": "2674f5a4795fabb30a07ba9626c995e3ad5e5c6c",
+  "bytes": 33689323,
+  "certificate_sha256": "01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b",
+  "device_acceptance_tested": false,
+  "full_tests": 309,
+  "native_tests": {
+    "errors": 0,
+    "failures": 0,
+    "tests": 10
+  },
+  "package": "com.yuepos.app",
+  "production_data_modified": false,
+  "run_id": "35117926957",
+  "sha256": "2312fb69a359038d5681fe1ccccde5cb03ccb7ecf80bb8cc8ee155418f5eb436",
+  "targeted_tests": 18,
+  "version_code": 174,
+  "version_name": "1.0.1",
+  "asset_name": "MIAO_POS_1.0.1+174_OWNER_CLEANUP_R1.apk",
+  "transfer_url": "https://release-assets.githubusercontent.com/github-production-release-asset/1289863271/c4d60fc1-9edc-4d7b-9df2-0355e231aa65?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-16T17%3A02%3A12Z&rscd=attachment%3B+filename%3DMIAO_POS_1.0.1%2B174_OWNER_CLEANUP_R1.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-16T16%3A01%3A47Z&ske=2026-09-16T17%3A02%3A12Z&sks=b&skv=2018-11-09&sig=nBFZ32IYnQyG1XzZV4oozBGT2Q5y0MvVy2Gtp7rIvpg%3D&jwt=***"
+}
