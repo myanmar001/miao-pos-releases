@@ -4,17 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 172,
+  "latest_build": 173,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B172/MIAO_POS_1.0.1%2B172_TAX_DISPLAY_R1.apk",
-  "sha256": "cd6c2e481d6b5504b55a9329808ad6586300c50f1d706007d26e1175a594db92",
-  "file_size": 33604356,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B173/MIAO_POS_1.0.1%2B173_PENDING_CONFIRM_R1.apk",
+  "sha256": "f495e9c289a7a4027bc547011615e3147cb740f4b82318133866f70357e7965e",
+  "file_size": 33639836,
   "release_notes": [
-    "税务设置在不使用下新增可选价内税标识，百分比可编辑",
-    "沿用原结账税务开关，小计和小票显示含税百分比",
-    "仅显示标识，不加钱、不减钱、不拆税额，原价外税和其他金额计算不变",
-    "保留 +171 原有功能，原签名覆盖升级，保留本地数据"
+    "云端确认已成功的订单、挂单、商品与分类后，自动恢复清除本机 Pending",
+    "未上传或无法确认的记录继续保留；手动同步明确显示未完成领域与原因",
+    "保护并发编辑和切店；保留 +172 功能，原签名覆盖升级，不清数据"
   ],
-  "published_at": "2026-09-15T13:54:23Z"
+  "published_at": "2026-09-16T06:02:56Z"
 }
