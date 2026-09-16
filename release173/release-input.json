@@ -1,0 +1,21 @@
+{
+  "build_commit": "ad16e881f4eca905fb351949d8a4538e697dacc6",
+  "bytes": 33639836,
+  "certificate_sha256": "01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b",
+  "device_acceptance_tested": false,
+  "full_tests": 291,
+  "native_tests": {
+    "errors": 0,
+    "failures": 0,
+    "tests": 10
+  },
+  "package": "com.yuepos.app",
+  "production_data_modified": false,
+  "run_id": "35059673889",
+  "sha256": "f495e9c289a7a4027bc547011615e3147cb740f4b82318133866f70357e7965e",
+  "targeted_tests": 37,
+  "version_code": 173,
+  "version_name": "1.0.1",
+  "transfer_url": "https://release-assets.githubusercontent.com/github-production-release-asset/1289863271/454aead1-b073-47af-b068-0ae9795e2a42?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-16T06%3A25%3A41Z&rscd=attachment%3B+filename%3DMIAO_POS_1.0.1%2B173_PENDING_CONFIRM_R1.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-16T05%3A24%3A43Z&ske=2026-09-16T06%3A25%3A41Z&sks=b&skv=2018-11-09&sig=9fypNJ2RyZXcOsfTJRI74u%2Fs9610TSBoWzbWYnCq9C0%3D&jwt=***",
+  "asset_name": "MIAO_POS_1.0.1+173_PENDING_CONFIRM_R1.apk"
+}
