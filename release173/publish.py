@@ -43,12 +43,14 @@ tag='v1.0.1+173'
 r=subprocess.run(['gh','release','view',tag,'--repo',REPO,'--json','isDraft,assets'],capture_output=True,text=True)
 if r.returncode!=0:
  subprocess.run(['gh','release','create',tag,str(apk),'--repo',REPO,'--target','main','--draft','--title','MIAO POS Android 1.0.1+173','--notes-file','release-notes.md'],check=True)
-release=api('releases/tags/'+urllib.parse.quote(tag,safe=''))
+release=api('releases/389670599')
+assert release['id']==389670599 and release['tag_name']==tag
 asset=next(a for a in release['assets'] if a['name']==name)
 assert asset['size']==proof['bytes'] and asset['digest']=='sha256:'+proof['sha256']
 if release['draft']:
  subprocess.run(['gh','release','edit',tag,'--repo',REPO,'--draft=false','--latest','--notes-file','release-notes.md'],check=True)
-release=api('releases/tags/'+urllib.parse.quote(tag,safe=''))
+release=api('releases/389670599')
+assert release['id']==389670599 and release['tag_name']==tag
 assert not release['draft'] and not release['prerelease']
 asset=next(a for a in release['assets'] if a['name']==name)
 # Verify the public file before advertising it in the Android stable feed.
