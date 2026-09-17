@@ -4,16 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 173,
+  "latest_build": 174,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B173/MIAO_POS_1.0.1%2B173_PENDING_CONFIRM_R1.apk",
-  "sha256": "f495e9c289a7a4027bc547011615e3147cb740f4b82318133866f70357e7965e",
-  "file_size": 33639836,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B174/MIAO_POS_1.0.1%2B174_OWNER_CLEANUP_R1.apk",
+  "sha256": "2312fb69a359038d5681fe1ccccde5cb03ccb7ecf80bb8cc8ee155418f5eb436",
+  "file_size": 33689323,
   "release_notes": [
-    "云端确认已成功的订单、挂单、商品与分类后，自动恢复清除本机 Pending",
-    "未上传或无法确认的记录继续保留；手动同步明确显示未完成领域与原因",
-    "保护并发编辑和切店；保留 +172 功能，原签名覆盖升级，不清数据"
+    "新增老板专用「异常待同步清理」入口，核对后逐条清理符合条件的无明细未上传订单",
+    "清理前必须联网校验权限并保留审计记录；同店已升级设备同步识别清理结果，防止局域网回流",
+    "保留 +173 功能，原签名覆盖升级，不清数据；后台价内税设置由独立 R12 网页更新提供"
   ],
-  "published_at": "2026-09-16T06:02:56Z"
+  "published_at": "2026-09-17T01:16:14Z"
 }
