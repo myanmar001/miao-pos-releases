@@ -9,7 +9,7 @@ assert proof['targeted_tests']>=18 and proof['full_tests']>=309
 assert proof['native_tests']=={'tests':10,'failures':0,'errors':0}
 assert proof['certificate_sha256']=='01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b'
 url=urllib.parse.urlsplit(proof['transfer_url'])
-assert url.scheme=='https' and url.hostname in ('release-assets.githubusercontent.com','objects.githubusercontent.com') and not url.username
+assert url.scheme=='https' and url.hostname == 'github.com' and url.path == '/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B174/MIAO_POS_1.0.1%2B174_OWNER_CLEANUP_R1.apk' and not url.username
 name='MIAO_POS_1.0.1+174_OWNER_CLEANUP_R1.apk'
 assert proof['asset_name']==name
 # The file-only CDN request carries no repository token.
@@ -48,15 +48,19 @@ def find_release():
  return matches[0] if matches else None
 release=find_release()
 if release is None:
+ raise RuntimeError('Expected user-published 174 release')
  subprocess.run(['gh','release','create',tag,str(apk),'--repo',REPO,'--target','main','--draft','--title','MIAO POS Android 1.0.1+174','--notes-file','release-notes.md'],check=True)
  release=find_release()
 assert release and release['tag_name']==tag
 release_id=release['id']
+assert release_id==390370152
 release=api('releases/'+str(release_id))
 asset=next(a for a in release['assets'] if a['name']==name)
 assert asset['size']==proof['bytes'] and asset['digest']=='sha256:'+proof['sha256']
+assert not release['draft']
 if release['draft']:
  subprocess.run(['gh','release','edit',tag,'--repo',REPO,'--draft=false','--latest','--notes-file','release-notes.md'],check=True)
+subprocess.run(['gh','release','edit',tag,'--repo',REPO,'--notes-file','release-notes.md'],check=True)
 release=api('releases/'+str(release_id))
 assert release['id']==release_id and release['tag_name']==tag
 assert not release['draft'] and not release['prerelease']
