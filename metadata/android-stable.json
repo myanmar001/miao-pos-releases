@@ -4,16 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 174,
+  "latest_build": 175,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B174/MIAO_POS_1.0.1%2B174_OWNER_CLEANUP_R1.apk",
-  "sha256": "2312fb69a359038d5681fe1ccccde5cb03ccb7ecf80bb8cc8ee155418f5eb436",
-  "file_size": 33689323,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B175/MIAO_POS_1.0.1%2B175_LOCAL_STORAGE_R1.apk",
+  "sha256": "15f23b8552818fdf1c0daceb822b1c15951f26ab267cfb2144ab1a1fe2bc14da",
+  "file_size": 33866001,
   "release_notes": [
-    "新增老板专用「异常待同步清理」入口，核对后逐条清理符合条件的无明细未上传订单",
-    "清理前必须联网校验权限并保留审计记录；同店已升级设备同步识别清理结果，防止局域网回流",
-    "保留 +173 功能，原签名覆盖升级，不清数据；后台价内税设置由独立 R12 网页更新提供"
+    "优化长期营业后的暂存/挂单保存：逐条写入本地 SQLite，避免重写全部历史订单。",
+    "订单与 Pending 原子保存，保留离线、备份、LAN/云端同步及旧数据自动迁移。",
+    "原签名覆盖安装，不卸载、不清数据；升级前导出备份，175 营业后不要直接降级。",
+    "自动测试和签名已核验，真实营业设备现场验收待完成。"
   ],
-  "published_at": "2026-09-17T01:16:14Z"
+  "published_at": "2026-09-19T10:53:51Z"
 }
