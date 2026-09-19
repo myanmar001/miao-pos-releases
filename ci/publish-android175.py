@@ -100,6 +100,9 @@ def publish():
     assert asset['size'] == CONFIG['bytes'] and asset['digest'] == 'sha256:' + CONFIG['sha256']
     if release['draft']:
         release = api('releases/' + str(release['id']), {'draft': False, 'prerelease': False, 'make_latest': 'true'}, 'PATCH')
+    # Publishing replaces the draft's untagged download URLs with tag URLs.
+    asset = next(a for a in release['assets'] if a['name'] == NAME)
+    assert asset['size'] == CONFIG['bytes'] and asset['digest'] == 'sha256:' + CONFIG['sha256']
     for attempt in range(6):
         try:
             read_public(asset['browser_download_url'])
