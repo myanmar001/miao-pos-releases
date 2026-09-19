@@ -1,0 +1,77 @@
+{
+  "package": "com.yuepos.app",
+  "version_code": 175,
+  "version_name": "1.0.1",
+  "certificate_sha256": "01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b",
+  "sha256": "15f23b8552818fdf1c0daceb822b1c15951f26ab267cfb2144ab1a1fe2bc14da",
+  "bytes": 33866001,
+  "build_commit": "eedc20d32b3d4b4d5778f188e31edd15dbb06561",
+  "run_id": "35437745777",
+  "flutter_tests": 384,
+  "native_tests": 10,
+  "device_acceptance_tested": false,
+  "production_data_modified": false,
+  "baseline_build": 174,
+  "delete_old_apks": [
+    {
+      "id": 567305701,
+      "name": "MIAO_POS_1.0.1+173_PENDING_CONFIRM_R1.apk",
+      "size": 33639836
+    },
+    {
+      "id": 565802538,
+      "name": "MIAO_POS_1.0.1+172_TAX_DISPLAY_R1.apk",
+      "size": 33604356
+    },
+    {
+      "id": 563740567,
+      "name": "MIAO_POS_1.0.1+171_KITCHEN_TICKET_R1.apk",
+      "size": 33578181
+    },
+    {
+      "id": 563627094,
+      "name": "MIAO_POS_1.0.1+170_HISTORY_ORDER_RECOVERY_R1.apk",
+      "size": 33576309
+    },
+    {
+      "id": 562834640,
+      "name": "MIAO_POS_1.0.1+167_CLOUD_PROFILE_RECOVERY_R1.apk",
+      "size": 33537414
+    },
+    {
+      "id": 550901795,
+      "name": "MIAO_POS_1.0.1+159.apk",
+      "size": 33433245
+    },
+    {
+      "id": 550512759,
+      "name": "MIAO_POS_1.0.1+158.apk",
+      "size": 33414965
+    },
+    {
+      "id": 547457041,
+      "name": "MIAO_POS_1.0.1+156.apk",
+      "size": 33333188
+    },
+    {
+      "id": 547002052,
+      "name": "MIAO_POS_1.0.1+155.apk",
+      "size": 33306797
+    },
+    {
+      "id": 546860687,
+      "name": "MIAO_POS_1.0.1+153.apk",
+      "size": 33307283
+    },
+    {
+      "id": 546089617,
+      "name": "MIAO_POS_1.0.1+151.apk",
+      "size": 33296448
+    },
+    {
+      "id": 545607329,
+      "name": "MIAO_POS_1.0.1+150.apk",
+      "size": 33296630
+    }
+  ]
+}
