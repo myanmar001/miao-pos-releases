@@ -77,7 +77,13 @@ def verify_apk(path):
 
 
 def publish():
-    data = read_public(os.environ['APK_TRANSFER_URL'])
+    subprocess.run(['git', 'fetch', '--depth=1', 'origin', 'refs/heads/transfer/android175-apk-20260919'], check=True)
+    data = bytearray()
+    for index in range(CONFIG['transfer_parts']):
+        encoded = subprocess.check_output(['git', 'show', 'FETCH_HEAD:_transfer175/part-%03d.b64' % index])
+        data.extend(base64.b64decode(encoded, validate=True))
+        assert len(data) <= CONFIG['bytes'], 'Oversized APK transfer'
+    assert len(data) == CONFIG['bytes'] and hashlib.sha256(data).hexdigest() == CONFIG['sha256']
     target = Path(NAME)
     target.write_bytes(data)
     verify_apk(target)

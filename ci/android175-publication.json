@@ -12,6 +12,7 @@
   "device_acceptance_tested": false,
   "production_data_modified": false,
   "baseline_build": 174,
+  "transfer_parts": 65,
   "delete_old_apks": [
     {
       "id": 567305701,
