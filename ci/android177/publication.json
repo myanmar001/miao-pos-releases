@@ -1,0 +1,19 @@
+{
+  "package": "com.yuepos.app",
+  "version_code": 177,
+  "version_name": "1.0.1",
+  "certificate_sha256": "01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b",
+  "sha256": "e68faca52ff4057bbbd57710a69bde9b0852cddb1f5503637f742ffd9ea87aad",
+  "bytes": 34001352,
+  "build_commit": "04946a94998e1d625d1de19935b4caa91d0519c8",
+  "run_id": "35516744694",
+  "flutter_tests": 484,
+  "native_tests": 10,
+  "device_acceptance_tested": false,
+  "production_data_modified": false,
+  "baseline_build": 176,
+  "transfer_parts": 24,
+  "transfer_branch": "transfer/android177-apk-35516744694",
+  "apk_name": "MIAO_POS_1.0.1+177_SYNC_THROTTLE_R1.apk",
+  "public_transfer_commit": "74728207952f3097ce639fb61eb5d642a03b808b"
+}

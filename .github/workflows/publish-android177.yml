@@ -1,0 +1,24 @@
+name: Publish verified old MIAO POS Android 177
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-android177.yml'
+      - 'ci/android177/publication.json'
+      - 'ci/android177/publish.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: android-stable-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and publish Android 177
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/android177/publish.py
