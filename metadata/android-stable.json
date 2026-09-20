@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 175,
+  "latest_build": 176,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B175/MIAO_POS_1.0.1%2B175_LOCAL_STORAGE_R1.apk",
-  "sha256": "15f23b8552818fdf1c0daceb822b1c15951f26ab267cfb2144ab1a1fe2bc14da",
-  "file_size": 33866001,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B176/MIAO_POS_1.0.1%2B176_PENDING_RECOVERY_R1.apk",
+  "sha256": "eca176b683929b52ba13f3ccab1e17b47fcda50097664cc7da7e11ce233ce816",
+  "file_size": 33868404,
   "release_notes": [
-    "优化长期营业后的暂存/挂单保存：逐条写入本地 SQLite，避免重写全部历史订单。",
-    "订单与 Pending 原子保存，保留离线、备份、LAN/云端同步及旧数据自动迁移。",
-    "原签名覆盖安装，不卸载、不清数据；升级前导出备份，175 营业后不要直接降级。",
-    "自动测试和签名已核验，真实营业设备现场验收待完成。"
+    "修复已删除商品的本机待同步残留，经云端授权核对后自动清理。",
+    "保留未确认和新修改数据，单条异常不阻塞其他商品上传。",
+    "修复异常订单清理页面宽度和按钮布局。",
+    "保留 175 的订单和 SQLite 数据；沿用原签名覆盖安装。"
   ],
-  "published_at": "2026-09-19T10:53:51Z"
+  "published_at": "2026-09-20T06:25:45Z"
 }
