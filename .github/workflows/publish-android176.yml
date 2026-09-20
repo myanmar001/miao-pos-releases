@@ -1,0 +1,24 @@
+name: Publish verified old MIAO POS Android 176
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-android176.yml'
+      - 'ci/android176/publication.json'
+      - 'ci/android176/publish.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: android-stable-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify APK and publish Android 176 online update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/android176/publish.py

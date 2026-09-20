@@ -1,0 +1,19 @@
+{
+  "package": "com.yuepos.app",
+  "version_code": 176,
+  "version_name": "1.0.1",
+  "certificate_sha256": "01f72838bf9ed809aa8e641a1c8b0fedb8ccad590fba1b80333e3ce143e22d3b",
+  "sha256": "eca176b683929b52ba13f3ccab1e17b47fcda50097664cc7da7e11ce233ce816",
+  "bytes": 33868404,
+  "build_commit": "c07ef731c066222a9ca5aa4f13bffa6e6c687ce2",
+  "run_id": "35493375143",
+  "flutter_tests": 406,
+  "native_tests": 10,
+  "device_acceptance_tested": false,
+  "production_data_modified": false,
+  "baseline_build": 175,
+  "transfer_parts": 65,
+  "transfer_branch": "transfer/android176-apk-35493375143",
+  "apk_name": "MIAO_POS_1.0.1+176_PENDING_RECOVERY_R1.apk",
+  "public_transfer_commit": "5ea2362d354f9f749766478bfce8c3ab32ed57a8"
+}
