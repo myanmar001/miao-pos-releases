@@ -107,21 +107,6 @@ def publish():
     assert re.fullmatch(r'transfer/android177-apk-\d+', CONFIG['transfer_branch'])
     assert re.fullmatch(r'[0-9a-f]{40}', CONFIG['public_transfer_commit'])
     assert re.fullmatch(r'[0-9a-f]{64}', CONFIG['sha256'])
-    subprocess.run(['git', 'fetch', '--depth=1', 'origin',
-                    'refs/heads/' + CONFIG['transfer_branch']], check=True)
-    actual_commit = subprocess.check_output(['git', 'rev-parse', 'FETCH_HEAD'], text=True).strip()
-    assert actual_commit == CONFIG['public_transfer_commit'], 'Transfer branch changed'
-    data = bytearray()
-    for index in range(CONFIG['transfer_parts']):
-        encoded = subprocess.check_output(
-            ['git', 'show', 'FETCH_HEAD:_transfer177/part-%03d.b64' % index])
-        data.extend(base64.b64decode(encoded, validate=True))
-        assert len(data) <= CONFIG['bytes'], 'Oversized APK transfer'
-    assert len(data) == CONFIG['bytes']
-    assert hashlib.sha256(data).hexdigest() == CONFIG['sha256']
-    target = Path(NAME)
-    target.write_bytes(data)
-    verify_apk(target)
     Path('RELEASE_NOTES.md').write_text(release_notes())
     Path('SHA256SUMS.txt').write_text(CONFIG['sha256'] + '  ' + NAME + '\n')
     Path('ANDROID_177_RESULT.json').write_text(
@@ -130,13 +115,7 @@ def publish():
 
     releases = api('releases?per_page=100')
     release = next((r for r in releases if r['tag_name'] == TAG), None)
-    if release is None:
-        subprocess.run(['gh', 'release', 'create', TAG, '--repo', REPO,
-                        '--target', os.environ['GITHUB_SHA'], '--draft',
-                        '--title', 'MIAO POS Android 1.0.1+177',
-                        '--notes-file', 'RELEASE_NOTES.md', NAME,
-                        'SHA256SUMS.txt', 'ANDROID_177_RESULT.json'], check=True)
-        release = next(r for r in api('releases?per_page=100') if r['tag_name'] == TAG)
+    assert release is not None and release['draft'], 'Expected the user-uploaded 177 draft release'
     asset = next(a for a in release['assets'] if a['name'] == NAME)
     assert asset['size'] == CONFIG['bytes'] and asset['digest'] == 'sha256:' + CONFIG['sha256']
     if release['draft']:
