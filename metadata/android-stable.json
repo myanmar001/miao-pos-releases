@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 177,
+  "latest_build": 178,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B177/MIAO_POS_1.0.1%2B177_SYNC_THROTTLE_R1.apk",
-  "sha256": "e68faca52ff4057bbbd57710a69bde9b0852cddb1f5503637f742ffd9ea87aad",
-  "file_size": 34001352,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B178/MIAO_POS_1.0.1%2B178_CLOUDFLARE_QUOTA.apk",
+  "sha256": "320eafa34f4c59ef62c97b46ed4146cb35a10b641a9867a170f3a1eae219e825",
+  "file_size": 34007633,
   "release_notes": [
-    "降低 Cloudflare 请求量，合并重复同步触发并延长空闲轮询。",
-    "修复挂单业务 400 后高频重试；网络失败采用逐步退避。",
-    "保留销售、打印、UI、税务和商品业务逻辑不变。",
-    "保留 176 数据并沿用原签名，可直接覆盖安装。"
+    "补充识别 Cloudflare 1027 额度耗尽响应，连续确认后自动切换到 Vercel 备用线路。",
+    "额度耗尽后降低主线路恢复探测频率至 30 分钟，确认恢复后自动切回。",
+    "429 处理及订单、挂单、商品、打印、LAN、UI 等业务保持原样。",
+    "沿用原签名，直接覆盖安装，保留现有数据。"
   ],
-  "published_at": "2026-09-20T15:36:32Z"
+  "published_at": "2026-09-21T10:05:59Z"
 }
