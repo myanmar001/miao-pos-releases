@@ -4,18 +4,19 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 179,
+  "latest_build": 181,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B179/MIAO_POS_1.0.1%2B179_PRODUCT_IDENTITY.apk",
-  "sha256": "882cc2a0f665e1ca618138a0ee21e5f8fefaf117b7693c61901e1f10f17e667f",
-  "file_size": 34142752,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B181/MIAO_POS_1.0.1%2B181_LAN_CART.apk",
+  "sha256": "1e97495468853ec11223f2c6d3e9d09be50c2fa019d34709a73d044cf71ee682",
+  "file_size": 34147006,
   "release_notes": [
-    "新增商品前精确检查企业同名商品，可使用已有商品加入本店，保留离线新增能力。",
-    "离线重复商品联网后，在安全条件满足时自动关联已有商品，修复挂单及待同步订单引用。",
-    "同店设备通过 LAN 同步商品关联；明确商品业务错误停止周期重复请求，网络故障继续退避重试。",
-    "互换“全部商品”和 Logo/MIAO POS 菜单位置，分类仍按数量尽量向下展开，超出可滚动。",
-    "沿用原签名覆盖安装，保留现有数据，不卸载、不清数据。"
+    "包含180局域网主从选举与连接恢复修复：恢复互通后统一解决双老大冲突，正常后来加入的设备跟随现有老大。",
+    "局域网大数据包加解密移出界面线程，减少双设备同步时对操作流畅度的影响；未变化的数据不再反复解析计算。",
+    "补齐商品图片时仅请求商品数据，不再同时附带全部订单、挂单和操作记录；保留正常完整恢复能力。",
+    "购物车添加商品只与最后一行相同配置的商品合并，A→B→A保持三行；点击某一行的＋只增加该行。",
+    "修复相同商品分行后整单优惠分摊串行的问题，各行数量、优惠与金额分别保存。",
+    "GT与PAD请都覆盖安装181，沿用原签名，保留现有数据，不卸载、不清数据。"
   ],
-  "published_at": "2026-09-21T14:08:11Z"
+  "published_at": "2026-09-22T06:23:07Z"
 }
