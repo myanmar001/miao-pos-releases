@@ -4,19 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 181,
+  "latest_build": 182,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B181/MIAO_POS_1.0.1%2B181_LAN_CART.apk",
-  "sha256": "1e97495468853ec11223f2c6d3e9d09be50c2fa019d34709a73d044cf71ee682",
-  "file_size": 34147006,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B182/MIAO_POS_1.0.1%2B182_LAN_FOLLOWER_FIX.apk",
+  "sha256": "8f1698d5d9efbb2ba1547007c61015b034ef6a10b803360176ca389832c81436",
+  "file_size": 34211493,
   "release_notes": [
-    "包含180局域网主从选举与连接恢复修复：恢复互通后统一解决双老大冲突，正常后来加入的设备跟随现有老大。",
-    "局域网大数据包加解密移出界面线程，减少双设备同步时对操作流畅度的影响；未变化的数据不再反复解析计算。",
-    "补齐商品图片时仅请求商品数据，不再同时附带全部订单、挂单和操作记录；保留正常完整恢复能力。",
-    "购物车添加商品只与最后一行相同配置的商品合并，A→B→A保持三行；点击某一行的＋只增加该行。",
-    "修复相同商品分行后整单优惠分摊串行的问题，各行数量、优惠与金额分别保存。",
-    "GT与PAD请都覆盖安装181，沿用原签名，保留现有数据，不卸载、不清数据。"
+    "优化局域网跟随设备同步性能，降低双设备营业时的卡顿。",
+    "限制 LAN 单次分页数据量，并支持大型 LAN 事件分片续传。",
+    "减少商品图片重复探测造成的界面与网络压力。",
+    "沿用原 MIAO POS 正式签名，可直接覆盖安装；不要卸载或清除数据。"
   ],
-  "published_at": "2026-09-22T06:23:07Z"
+  "published_at": "2026-09-30T04:20:22Z"
 }
