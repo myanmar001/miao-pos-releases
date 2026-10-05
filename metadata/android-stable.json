@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 182,
+  "latest_build": 185,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B182/MIAO_POS_1.0.1%2B182_LAN_FOLLOWER_FIX.apk",
-  "sha256": "8f1698d5d9efbb2ba1547007c61015b034ef6a10b803360176ca389832c81436",
-  "file_size": 34211493,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B185/MIAO_POS_1.0.1%2B185_OLD_LAN_KITCHEN_ABA.apk",
+  "sha256": "8bde83133d4dacf22c0427b8c34ef4f5049b8969fa699c9d36b2efe398bec980",
+  "file_size": 34218893,
   "release_notes": [
-    "优化局域网跟随设备同步性能，降低双设备营业时的卡顿。",
-    "限制 LAN 单次分页数据量，并支持大型 LAN 事件分片续传。",
-    "减少商品图片重复探测造成的界面与网络压力。",
+    "修复厨房单 ABA 顺序问题，避免乱序、延迟或重复事件导致厨房差异单顺序异常。",
+    "保留 Android182 原有分页、分片及续传逻辑。",
+    "未引入 LAN V2，未修改销售、库存、付款、税务、挂单、收据等其它成熟业务。",
     "沿用原 MIAO POS 正式签名，可直接覆盖安装；不要卸载或清除数据。"
   ],
-  "published_at": "2026-09-30T04:20:22Z"
+  "published_at": "2026-10-05T23:21:57Z"
 }
