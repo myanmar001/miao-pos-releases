@@ -1,0 +1,65 @@
+name: Publish Android 186 R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-android186-r2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download verified Build 342 artifact
+        env:
+          APK_ARTIFACT_URL: 'https://sdmntpraustraliaeast.oaiusercontent.com/files/00000000-2b30-81fa-8f1a-a60d39f002b8/raw?se=2026-10-07T06%3A58%3A38Z&sp=r&sv=2026-02-06&sr=b&scid=3fb59510-dfa9-5246-a104-5db1314d8445&skoid=8cb40e9f-389f-4cf6-afaa-e5bd4c7fd98c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T06%3A30%3A19Z&ske=2026-10-08T06%3A30%3A19Z&sks=b&skv=2026-02-06&sig=OrgtVpktpub/JXBlY9%2BmlPYF%2BGPrQxxseEjZck0IYUc%3D'
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-all-errors "$APK_ARTIFACT_URL" -o artifact.zip
+          echo "5ceac5ad4b8dcf8c7e5a61d95ca862a39b0b6e705cca578861a1d2d452234a77  artifact.zip" | sha256sum -c -
+          rm -rf artifact
+          mkdir artifact
+          unzip -q artifact.zip -d artifact
+          test -f artifact/app-release.apk
+          cp artifact/app-release.apk 'MIAO_POS_1.0.1+186_OLD_LAN_R2.apk'
+          echo "63f183251c9dac33ea795fc6673b1d2dca3c06b98dca009e3f8fbd2b0b9cf74f  MIAO_POS_1.0.1+186_OLD_LAN_R2.apk" | sha256sum -c -
+          printf '%s  %s\n'             '63f183251c9dac33ea795fc6673b1d2dca3c06b98dca009e3f8fbd2b0b9cf74f'             'MIAO_POS_1.0.1+186_OLD_LAN_R2.apk' > SHA256SUMS.txt
+
+      - name: Publish stable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cat > release-notes.md <<'EOF'
+MIAO POS Android 186 R2
+
+Version: 1.0.1+186
+
+- 修复云端历史订单退款后重新进入普通 sale Pending，因门店身份缺失而出现“订单归属与当前门店不一致”的问题。
+- 补全云历史订单的 store_id / device_code / employee_id 身份映射。
+- 已存在的旧异常退款 Pending 可凭精确云端订单、退款及挂单证据安全自愈，不重复提交销售或退款。
+- 库存同步按真实商品依赖隔离，避免无关订单 Pending 阻塞其它商品的手工库存同步。
+- 保留 OLD LAN；未引入 LAN V2。
+- R2 专项 133/133；相关回归 321/321；OLD LAN 65/65；两组云兼容各 40/40；云入口 51/51。
+- 最终完整回归 862 PASS / 1 个已冻结 cloud paging RED，无新增 RED；Analyze 0 error / 0 warning / 0 新增 info，保留 2 条已批准基线 info。
+- A 设备现场验证：原订单/库存 Pending 2/2 自动恢复至 0/0；新销售、全额退款、部分退款、退款返库存及手工库存调整均已验证，云端未发现重复订单、重复退款或重复库存 movement。
+- 使用原 MIAO POS 正式签名，可直接覆盖安装；不要卸载或清除数据。
+
+Build source:
+8d814b762368cb3691b876a104f693fe50b3720d
+
+Build workflow:
+myanmar001/pos_app Actions Build APK #342 / run 37562273836
+
+APK SHA256:
+63f183251c9dac33ea795fc6673b1d2dca3c06b98dca009e3f8fbd2b0b9cf74f
+EOF
+
+          if gh release view 'v1.0.1+186' >/dev/null 2>&1; then
+            echo "Release v1.0.1+186 already exists; refusing to overwrite."
+            exit 1
+          fi
+          gh release create 'v1.0.1+186'             'MIAO_POS_1.0.1+186_OLD_LAN_R2.apk#MIAO POS Android 186 R2'             'SHA256SUMS.txt#SHA256'             --title 'MIAO POS Android 1.0.1+186'             --notes-file release-notes.md
