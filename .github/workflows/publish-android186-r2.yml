@@ -59,7 +59,7 @@ jobs:
           63f183251c9dac33ea795fc6673b1d2dca3c06b98dca009e3f8fbd2b0b9cf74f
           EOF
 
-          if gh release view 'v1.0.1+186' >/dev/null 2>&1; then
+          if gh release view 'v1.0.1+186' --repo myanmar001/miao-pos-releases >/dev/null 2>&1; then
             echo "Release v1.0.1+186 already exists; refusing to overwrite."
             exit 1
           fi
@@ -67,5 +67,6 @@ jobs:
           gh release create 'v1.0.1+186' \
             'MIAO_POS_1.0.1+186_OLD_LAN_R2.apk#MIAO POS Android 186 R2' \
             'SHA256SUMS.txt#SHA256' \
+            --repo myanmar001/miao-pos-releases \
             --title 'MIAO POS Android 1.0.1+186' \
             --notes-file release-notes.md
