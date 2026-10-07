@@ -4,17 +4,17 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 185,
+  "latest_build": 186,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B185/MIAO_POS_1.0.1%2B185_OLD_LAN_KITCHEN_ABA.apk",
-  "sha256": "8bde83133d4dacf22c0427b8c34ef4f5049b8969fa699c9d36b2efe398bec980",
-  "file_size": 34218893,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B186/MIAO_POS_1.0.1%2B186_OLD_LAN_R2.apk",
+  "sha256": "63f183251c9dac33ea795fc6673b1d2dca3c06b98dca009e3f8fbd2b0b9cf74f",
+  "file_size": 34615180,
   "release_notes": [
-    "修复厨房单 ABA 顺序问题，避免乱序、延迟或重复事件导致厨房差异单顺序异常。",
-    "保留 Android182 原有分页、分片及续传逻辑。",
-    "未引入 LAN V2，未修改销售、库存、付款、税务、挂单、收据等其它成熟业务。",
-    "沿用原 MIAO POS 正式签名，可直接覆盖安装；不要卸载或清除数据。"
+    "修复云端历史订单退款后重新进入普通销售待同步，导致“订单归属与当前门店不一致”的问题。",
+    "补全云历史订单身份，并支持旧异常退款 Pending 依据精确云端证据安全自愈。",
+    "优化库存同步依赖隔离，避免无关订单 Pending 阻塞其它商品库存同步。",
+    "保留 OLD LAN；沿用原 MIAO POS 正式签名，可直接覆盖安装；不要卸载或清除数据。"
   ],
-  "published_at": "2026-10-05T23:21:57Z"
+  "published_at": "2026-10-07T06:57:02Z"
 }
