@@ -4,18 +4,18 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 189,
+  "latest_build": 190,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B189-rc1/MIAO_POS_1.0.1_189_release_candidate.apk",
-  "sha256": "7e89a3acb94b76b128799f60b25babc46ae823d5309033ba4ae35a86670d125b",
-  "file_size": 35354817,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B190/MIAO_POS_1.0.1_190_release_candidate.apk",
+  "sha256": "8f48a75dfefd3e8d81f334443d1df444f11304e1460ccb2d91a727ab407e7108",
+  "file_size": 35385295,
   "release_notes": [
-    "189：优化商品与修饰符排序性能；购物车可为指定商品排除整单折扣。",
-    "189：安全过期的临时云分页缓存次日自动清理；支持按日期云分页查看历史订单。",
-    "189：商品销售、折扣、收款、退款、Pending清零和A/B局域网同步已完成部分现场验证。",
-    "安装前请先备份业务数据；使用原签名覆盖安装，不要卸载或清除数据。",
-    "已知限制：1GB设备首次入网追赶历史可能反复刷新，安全影响未完全验证；本地7天历史订单自动删除未启用；Flutter完整回归1496/1497通过（1项历史源码快照测试未通过）。"
+    "190：修复购物车编辑被拒后折扣残留、修饰符改名后旧选择丢失、同名误选与不同修饰符组合错误合并。",
+    "190：减少订单通知触发的全商品重复整理，优化大量厨房打印历史的页面响应；厨房超长制作单支持分段完整输出。",
+    "本地完整Flutter回归1542/1542通过；A/B测试设备覆盖升级及已有业务数据保留已通过有限现场验证。",
+    "升级前请备份并确认未上传订单与挂单；使用原签名覆盖安装，切勿卸载或清除数据。",
+    "已知待验证：长期营业及1GB设备性能、部分实体打印与长票、A/B真实LAN同步、已部署云端RPC的新修饰符字段往返；7天本地历史自动删除尚未启用。"
   ],
-  "published_at": "2026-10-17T07:38:29Z"
+  "published_at": "2026-10-18T08:33:19Z"
 }
