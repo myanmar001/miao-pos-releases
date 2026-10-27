@@ -4,17 +4,16 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 192,
+  "latest_build": 193,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B192/MIAO_POS_1.0.1_192_release_candidate.apk",
-  "sha256": "41c4766694a7c52f946e895e0ffc29b0d5cd8037244f28cdcc7bc30b041e0617",
-  "file_size": 35552863,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B193/MIAO_POS_Android_1.0.1%2B193.apk",
+  "sha256": "055dfbdb6281cc83bbc3dc2ae23b7c930b9b50cf46f11a47db2fbaaa13576ccf",
+  "file_size": 35593284,
   "release_notes": [
-    "192：更新本地历史维护与厨房打印历史清理逻辑。",
-    "本地回归1610/1610通过；设备A离线覆盖安装192保留原数据，未观察到维护告警。",
-    "验证边界：维护实际执行不可观测，厨房30天真实到期清理仍缺少真机证据；不代表全面功能验收通过。",
-    "升级前请备份并确认未上传订单与挂单；使用原签名覆盖安装，切勿卸载或清除数据。"
+    "193：修复退款厨房部门路由，安全恢复原部门信息，防止同笔退款厨房任务重复提交。",
+    "升级前请备份并确认未上传订单与挂单；覆盖升级，切勿卸载或清除本地数据。",
+    "现场测试结果已获确认；尚未全面覆盖所有打印机型号，具体设备仍需现场验证。"
   ],
-  "published_at": "2026-10-22T08:08:11.574Z"
+  "published_at": "2026-10-27T16:02:15Z"
 }
