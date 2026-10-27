@@ -1,21 +1,21 @@
 {
   "channel": "stable",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B171/MIAO_POS_Windows_1.0.1%2B171_DESKTOP_RECOVERY_R1_Setup.exe",
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B193/MIAO_POS_Windows_1.0.1%2B193_Setup.exe",
   "enabled": true,
-  "file_size": 13365161,
-  "latest_build": 171,
+  "file_size": 14209340,
+  "latest_build": 193,
   "latest_version": "1.0.1",
   "minimum_supported_build": 149,
   "platform": "windows",
-  "published_at": "2026-09-14T20:26:22.359598Z",
+  "published_at": "2026-10-27T16:02:15Z",
   "release_notes": [
-    "补齐主备线路、线路状态恢复和实时连接修复",
-    "修复企业资料与员工权限刷新",
-    "补齐订单退款增量同步和历史分页修复",
-    "优化厨房小票字号，长商品名称完整换行",
-    "保留 Windows 原有性能优化及本地数据，支持覆盖升级"
+    "193：修复退款厨房部门路由，安全恢复原部门信息，防止同笔退款厨房任务重复提交。",
+    "修复Windows文档预览与打印兼容性，完善缩放、分页及单据布局；提供安装版与免安装版。",
+    "Windows安装程序未签名，可能显示SmartScreen提示。",
+    "升级前请备份并确认未上传订单与挂单；覆盖升级，切勿卸载或清除本地数据。",
+    "现场测试结果已获确认；尚未全面覆盖所有打印机型号，具体设备仍需现场验证。"
   ],
   "schema_version": 1,
-  "sha256": "65cf6f7af807ac600d18356e8329ee0b45e3d6afa8811fa4a3898a4e503e089b",
+  "sha256": "98ce96f2d17b418b3557fe33d77a229e469c33b2587babf573a0825247820ef0",
   "update_level": "normal"
 }
