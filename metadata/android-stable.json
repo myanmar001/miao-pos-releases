@@ -4,16 +4,18 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 193,
+  "latest_build": 194,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B193/MIAO_POS_Android_1.0.1%2B193.apk",
-  "sha256": "055dfbdb6281cc83bbc3dc2ae23b7c930b9b50cf46f11a47db2fbaaa13576ccf",
-  "file_size": 35593284,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B194/MIAO_POS_Android_1.0.1_194_API34_TEST.apk",
+  "sha256": "8a0ceb3c46d01941d91a08624fbe578b4c91c406bdcfb575060058ae27120b9b",
+  "file_size": 35624223,
   "release_notes": [
-    "193：修复退款厨房部门路由，安全恢复原部门信息，防止同笔退款厨房任务重复提交。",
-    "升级前请备份并确认未上传订单与挂单；覆盖升级，切勿卸载或清除本地数据。",
-    "现场测试结果已获确认；尚未全面覆盖所有打印机型号，具体设备仍需现场验证。"
+    "194：厨房任务持久化与异常恢复，核对商品、数量及部门完整性；失败提示支持安全再次打印。",
+    "发送结果未知时需人工确认，避免重复厨房单；钱箱等普通提示支持自动消失和手动关闭。",
+    "保留193退款厨房保护，改善Android7及API34构建兼容性。",
+    "请先备份并确认未上传订单及挂单，使用同签名覆盖升级，切勿卸载或清除数据。本次为普通更新，由用户自主确认安装。",
+    "192至194升级保留数据与厨房任务恢复、连续20单完整性已由用户确认通过；未覆盖所有打印机型号及USB实机环境。"
   ],
-  "published_at": "2026-10-27T16:02:15Z"
+  "published_at": "2026-11-06T21:18:17Z"
 }
