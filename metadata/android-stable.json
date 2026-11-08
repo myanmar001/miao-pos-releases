@@ -4,18 +4,18 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 194,
+  "latest_build": 195,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B194/MIAO_POS_Android_1.0.1_194_API34_TEST.apk",
-  "sha256": "8a0ceb3c46d01941d91a08624fbe578b4c91c406bdcfb575060058ae27120b9b",
-  "file_size": 35624223,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B195/MIAO_POS_Android_1.0.1_195_TEST.apk",
+  "sha256": "b4b1afa977b252119ca6aa314675f274a11c4988230c8b2b7126a729f5441c73",
+  "file_size": 35674345,
   "release_notes": [
-    "194：厨房任务持久化与异常恢复，核对商品、数量及部门完整性；失败提示支持安全再次打印。",
-    "发送结果未知时需人工确认，避免重复厨房单；钱箱等普通提示支持自动消失和手动关闭。",
-    "保留193退款厨房保护，改善Android7及API34构建兼容性。",
-    "请先备份并确认未上传订单及挂单，使用同签名覆盖升级，切勿卸载或清除数据。本次为普通更新，由用户自主确认安装。",
-    "192至194升级保留数据与厨房任务恢复、连续20单完整性已由用户确认通过；未覆盖所有打印机型号及USB实机环境。"
+    "195：厨房失败任务补打传输确认接受后自动退出待处理列表，原失败与补打历史完整保留。",
+    "详情与列表即时刷新，重启后处理状态保留；失败、未知及发送中不提前结案，未知结果补打需要明确确认。",
+    "保留旧失败任务确认已处理、194厨房可靠性及安全补打、普通提示修复和193退款保护。",
+    "同签名覆盖升级；请先备份并确认未上传订单和挂单，不要卸载或清除数据。普通更新，由用户自主确认安装。",
+    "1750项Flutter回归通过，Android11测试机已验证自动结案及重启恢复；未覆盖所有打印机型号及USB实机组合。"
   ],
-  "published_at": "2026-11-06T21:18:17Z"
+  "published_at": "2026-11-08T07:00:56Z"
 }
