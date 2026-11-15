@@ -1,21 +1,22 @@
 {
   "channel": "stable",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B193/MIAO_POS_Windows_1.0.1%2B193_Setup.exe",
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/win1.0.1%2B197/MIAO_POS_Windows_1.0.1_197_Setup.exe",
   "enabled": true,
-  "file_size": 14209340,
-  "latest_build": 193,
+  "file_size": 14351303,
+  "latest_build": 197,
   "latest_version": "1.0.1",
   "minimum_supported_build": 149,
   "platform": "windows",
-  "published_at": "2026-10-27T16:02:15Z",
+  "published_at": "2026-11-15T00:28:30Z",
   "release_notes": [
-    "193：修复退款厨房部门路由，安全恢复原部门信息，防止同笔退款厨房任务重复提交。",
-    "修复Windows文档预览与打印兼容性，完善缩放、分页及单据布局；提供安装版与免安装版。",
-    "Windows安装程序未签名，可能显示SmartScreen提示。",
-    "升级前请备份并确认未上传订单与挂单；覆盖升级，切勿卸载或清除本地数据。",
-    "现场测试结果已获确认；尚未全面覆盖所有打印机型号，具体设备仍需现场验证。"
+    "Windows 1.0.1+197：对齐Android197的主要收银、挂单、LAN及厨房打印业务改进。",
+    "厨房TCP连接建立前失败时最多安全自动重试两次，并显示重试进度；发送状态未知不自动重复打印。",
+    "保留厨房任务失败查看、人工补打和已处理确认，以及历史记录和响应性能优化。",
+    "提供Windows安装版Setup.exe与免安装版Portable.zip。",
+    "此版本未完成Windows实际GUI启动、193覆盖升级、数据保留及真实打印硬件验收；请先备份本地业务数据并选择合适时机更新。",
+    "Windows安装程序未进行Authenticode签名，可能出现SmartScreen提示；不要卸载旧版或清除应用数据。"
   ],
   "schema_version": 1,
-  "sha256": "98ce96f2d17b418b3557fe33d77a229e469c33b2587babf573a0825247820ef0",
+  "sha256": "bf6bd998166ef4bea31e561a75a7de545568ade94468eb2a0d690992c1c74108",
   "update_level": "normal"
 }
