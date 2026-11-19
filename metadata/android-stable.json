@@ -4,24 +4,15 @@
   "channel": "stable",
   "enabled": true,
   "latest_version": "1.0.1",
-  "latest_build": 197,
+  "latest_build": 200,
   "minimum_supported_build": 148,
   "update_level": "normal",
-  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B197/MIAO_POS_Android_1.0.1_197_RELEASE.apk",
-  "sha256": "1f9089d00ac1e120c6d309f8a6fa4069fa00e6d2b5277a835455aab895aa153c",
-  "file_size": 36573013,
+  "download_url": "https://github.com/myanmar001/miao-pos-releases/releases/download/v1.0.1%2B200/app-release.apk",
+  "sha256": "65834ef7280404e462fec9845463ff30c10d64ca844dc3b45e04ea7ab60c66f7",
+  "file_size": 36062657,
   "release_notes": [
-    "MIAO POS Android 197｜版本 1.0.1+197",
-    "本次更新重点改善厨房网络打印的连接恢复能力，并完善打印状态提示。",
-    "- 安全自动重试：连接失败且确认尚未发送打印数据时，最多自动重试两次，每次等待约3秒。",
-    "- 重试进度提示：及时显示“正在自动重试（1/2）”“正在自动重试（2/2）”，不阻挡正常收银操作。",
-    "- 连接恢复提示：自动恢复并完成发送后，短暂显示“厨房打印连接已恢复，任务已发送”。",
-    "- 保留人工处理：最终失败后，仍可查看失败详情、人工重新打印或确认已处理。",
-    "- 防止不安全重发：已开始提交数据或发送结果未知时，不自动重复发送，继续按原有规则人工核对。",
-    "- 保留已有收银、未付订单、LAN及厨房失败处理性能优化。",
-    "正式版已通过 2132项完整Flutter回归测试。",
-    "升级说明： 使用与正式196相同的包名和签名，支持保留数据覆盖升级。请勿卸载旧版或清除应用数据。",
-    "“任务已发送”表示App已完成网络发送，不代表已确认打印机实际出纸。"
+    "1.0.1+200",
+    "增加部分翻译，加大全部商品字号并改为白色。"
   ],
-  "published_at": "2026-11-14T09:40:13Z"
+  "published_at": "2026-11-19T00:37:47Z"
 }
